@@ -1,0 +1,304 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>排行榜</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="./js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="css/login.css" />
+        <link rel="stylesheet" href="./css/menu.css" />
+		<link rel="stylesheet" href="./css/rank.css" />
+		<!--[if lte IE 8]><link rel="stylesheet" href="./css/ie8.css" /><![endif]-->
+	</head>
+	<body class="left-sidebar">
+		<div id="page-wrapper">
+
+			<!-- Header -->
+				<div id="header-wrapper">
+					<div id="header" class="container">
+
+						<!-- Logo -->
+							<h2 id="logo" class="logo"><a href="index.html">library</a></h2>
+							
+
+						<!-- Nav -->
+							<nav id="nav">
+								<ul>
+                                	<!--首頁-->
+									<li><a class="icon fa-home" href="/"><span>首頁</span></a></li>
+                                    <!-------------------------------------------------------------------------->
+                                    <!--排行榜-->
+									<li>
+										<a href="#" class="icon fa-bar-chart-o"><span>書本編輯</span></a>
+										<ul>
+											<li><a href="/bookAddForm">新增書本</a></li>
+											<li><a href="/pointrank">書本查詢</a></li>
+										</ul>
+									</li>
+                                   	<!-------------------------------------------------------------------------->
+                                   	<!--討論區-->
+									<li><a class="icon fa-cog" href="/discuss"><span>討論區</span></a></li>
+                                    <!--網站規則-->
+									<li><a class="icon fa-retweet" href="/rules"><span>網站規則</span></a></li>
+								</ul>
+							</nav>
+
+					</div>
+				</div>
+
+			<!-- Main -->
+				<div id="main-wrapper">
+					<div id="main" class="container">
+						<div class="row">
+
+							<!-- Sidebar -->
+								<div id="sidebar" class="4u 12u(mobile)">
+
+									<!-- Excerpts -->
+										<section>
+											<ul class="divided">
+												<li>
+													<!-- Search -->
+													<article class="box excerpt">
+														<section id="search" class="alt">
+                                                             <form method="post" action="#">
+                                                                <input type="text" name="query" id="query" placeholder="Search" />
+       														</form>
+                                                         </section>
+													</article>
+												</li>
+
+													<!-- Excerpt -->
+														<article class="box excerpt">
+                                                            <nav id="menu">
+                                                                <header class="major">
+                                                                    <h2>分類 Category</h2>
+                                                                </header>
+                                                            <ul>
+                                                               
+                                                               
+                                                                 <li>
+                                                                    <span class="opener"><a href="#cat_01">2017</a></span>
+                                                                    <ul>
+                                                                        <li><a href="#">1</a></li>
+                                                                        <li><a href="#">2</a></li>
+                                                                        <li><a href="#">3</a></li>
+                                                                        <li><a href="#">Feugiat Veroeros</a></li>
+                                                                    </ul>
+                                                                    
+                                                                </li>
+                                                                
+                                                               
+                                                                <li>
+                                                                    <span class="opener"><a href="#cat_01">2016</a></span>
+                                                                    <ul>
+                                                                        <li><a href="#">Lorem Dolor</a></li>
+                                                                        <li><a href="#">Ipsum Adipiscing</a></li>
+                                                                        <li><a href="#">Tempus Magna</a></li>
+                                                                        <li><a href="#">Feugiat Veroeros</a></li>
+                                                                    </ul>
+                                                                    
+                                                                </li>
+                                                            </ul>
+                                                            </nav>
+                                                        </article>
+	
+
+												</li>
+											
+											</ul>
+										</section>
+
+
+								</div>
+
+							<!-- Content -->
+						<div id="content" class="8u 12u(mobile) important(mobile)">
+                              <div id="products_contents" >
+									
+							<!-- ▼▼分類1從此開始▼▼ -->
+							   <p align="left" class="text0" >本越熱門書排行</h3>
+								<h1  align="left">Top.1</h1>
+								
+								<ul>
+									<!-- ▼▼商品1從此開始▼▼ -->
+									<% for(var i=0; i<data.length; i++) {%>
+									<li class="clearfix">
+                                    
+										
+                                        <div clad>
+                                        <p class="imageView"><a data-fancybox="gallery" href="../1~20/pic1-1.jpg">
+                                        <img  class="bookpic"src="images/pic1.jpg" alt="黃椒 照片" width="180" height="180" align="absmiddle" /></a></p>
+										<h3><a href="shop.html"> <%= data[i].bookName %> 貓貓蟲咖波：食物世界超棒（首刷限量贈品版）</a></h3>
+                                           
+                                          
+                                          <p class="price"></p>
+                                          <p align="left" class="text1" >作者:  <%= data[i].author %> 著<br />
+                                            出版社: <%= data[i].publisher %> 出版</p>
+                                          <p align="left" class="text2" > ◆ 百分之百臺灣原汁原味獨創角色！<br />  ◆ 國際粉絲數突破50萬！<br />  ◆ Line貼圖排行榜上居高不下長青角色！ 誰是咖波？ 咖波是長得像貓又像蟲的不明物種，喜歡撒嬌，愛搗蛋...</p>
+                                        </div>
+                                      <% } %>     
+                                       
+									<!-- ▲▲商品1到此為止▲▲ -->
+									<!-- ▼▼商品2從此開始▼▼ -->
+                                    
+                                   <li class="clearfix">
+                                    <h1  align="left">Top2</h1>
+                                   
+									<div>
+									   <p class="imageView"><a data-fancybox="gallery" href="images/pic2.jpg">
+                                       <img src="images/pic2.jpg" width="180" height="180" alt="白菜 照片"align="absmiddle" /></a></p>
+										<h3><%= data[0].bookName %>貓貓蟲咖波：小萌物到處玩（首刷限量贈品版）</h3>
+										<p class="price"></p>
+                                        <p align="left" class="text1" align="left">作者:<%= data[0].author %> 著<br />
+										   出版社:<%= data[0].publisher %> 出版</p>
+                                        <p align="left" class="text2" > ◆ 百分之百臺灣原汁原味獨創角色！<br /> ◆ 國際粉絲數突破50萬！<br /> ◆ Line貼圖排行榜上居高不下長青角色！ 誰是咖波？ 咖波是長得像貓又像蟲的不明物種，喜歡撒嬌，愛搗蛋...</p>
+                                    </div>  
+									</li>
+									<!-- ▲▲商品2到此為止▲▲ -->
+									<!-- ▼▼商品3從此開始▼▼ -->
+                                     <h1  align="left">Top3</h1>
+									<li class="clearfix">
+                                         <p class="imageView"><a data-fancybox="gallery" href="images/pic3.jpg">
+										<img src="images/pic3.jpg"width="180" height="180"align="absmiddle" alt="小蕃茄 照片" /></a></p>
+										<h3><%= data[0].bookName %>不多走冤枉路！不多花一毛錢！－跟著小氣少年自由行大阪．神戶．奈良（附行動地圖集）</h3>
+                                        <p class="price"></p>
+										 <p align="left" class="text1" align="left">作者:<%= data[0].author %>著<br />
+										出版社:<%= data[0].publisher %>出版</p>
+										<p align="left" class="text2" > 去日本關西就像「行灶腳」一樣簡單！ 就像私人導遊，只要跟著書走， 景點、路線、吃住，讓你一路玩阪神奈， 絕不浪費寶貴的天數和預算...<br /> </p>
+									</li>
+									<!-- ▲▲商品3到此為止▲▲ -->
+								
+								
+							<!-- ▲▲分類1到此為止▲▲ -->
+							<!-- ▼▼分類2從此開始▼▼ -->
+							
+								
+								
+									<!-- ▼▼商品1從此開始▼▼ -->
+									<li class="clearfix">
+                                    <h1  align="left">top4</h1>
+										<p class="imageView"><a data-fancybox="gallery" href="images/pic4.jpg">
+                                        <img src="images/pic4.jpg" width="180" height="180" alt="紅蘿蔔 照片"align="absmiddle" /></a></p>
+										<h3><%= data[0].bookName %>Power錕的大人學：不吃苦，哪來實力！臺大最狂教授的14堂叢林生存課...</h3>
+										 <p class="price"></p>
+										 <p align="left" class="text1" align="left">作者:<%= data[0].author %> 著<br />
+										出版社:<%= data[0].publisher %> 出版</p>
+                                        <p align="left" class="text2" >★ 鄉民狂推，最精闢的觀點，一秒點破人生盲點！<br />  ★ 十四幅漫畫＋特別企畫【Power點點名Q&A】，秒懂Power錕的超狂哲學奧...  </p>
+									</li>
+									<!-- ▲▲商品1到此為止▲▲ -->
+									<!-- ▼▼商品2從此開始▼▼ -->
+									<li class="clearfix">
+                                     <h1  align="left">top5</h1>
+										<p class="imageView"><a data-fancybox="gallery" href="images/pic5.jpg">
+                                        <img src="images/pic5.jpg" width="180" height="180" alt="綠蕃茄 照片" align="absmiddle"/></a></p>
+										<h3><%= data[0].bookName %>過敏的大腦：身體出問題，原來是因為大腦過敏了！台灣耳科權威教你徹底擺脫暈眩、耳鳴、偏頭痛的煩惱！</h3>
+										<p class="price"></p>
+										 <p align="left" class="text1" align="left">作者:<%= data[0].author %> 著<br />
+										出版社:<%= data[0].publisher %> 出版</p>
+                                        <p align="left" class="text2" >常覺得頭痛、暈眩、焦慮，走路像在漂浮？ 原來這都是因為：你的大腦「過敏」了！ 博客來2016年度醫療保健暢銷書第1名革命性全新力作...  </p>
+									</li>
+									<!-- ▲▲商品2到此為止▲▲ -->
+								
+								
+							</li>
+							<!-- ▲▲分類2到此為止▲▲ -->
+							<!-- ▼▼分類3從此開始▼▼ -->
+							
+								<h1  align="left">top6</h1>
+								<ul>
+									<!-- ▼▼商品1從此開始▼▼ -->
+									<li class="clearfix">
+                                        <p class="imageView"><a data-fancybox="gallery" href="images/pic6.jpg">
+										<img src="images/pic6.jpg" width="180" height="180" alt="款冬 照片" align="absmiddle"/></a></p>
+										<h3><%= data[0].bookName %>怪獸與牠們的產地＋穿越歷史的魁地奇＋吟遊詩人皮陀故事集【霍格華茲圖書館全新插畫版】</h3>
+										<p class="price"></p>
+										 <p align="left" class="text1" align="left">作者:<%= data[0].author %> 著<br />
+										出版社:<%= data[0].publisher %>出版</p>
+                                         <p align="left" class="text2" >千呼萬喚！霍格華茲圖書館鎮館之寶開放收藏！ <br /> ★亞洲唯一！Pottermore版專屬書封，特別加贈收藏書盒！...<br />   </p>
+									</li>
+									<!-- ▲▲商品1到此為止▲▲ -->
+								
+								
+							</li>
+							<!-- ▲▲分類3到此為止▲▲ -->
+							<!-- ▼▼分類4從此開始▼▼ -->
+							
+								<h1  align="left">top7</h1>
+								<ul>
+									<!-- ▼▼商品1從此開始▼▼ -->
+									<li class="clearfix">
+                                        <p class="imageView"><a data-fancybox="gallery" href="images/pic7.jpg">
+										<img src="images/pic7.jpg" width="180" height="180" alt="茄子 照片" Salign="absmiddle"/></a></p>
+										<h3><%= data[0].bookName %>特殊傳說Ⅱ 恆遠之晝篇 04</h3>
+										<p class="price"></p>
+										 <p align="left" class="text1" align="left">作者:<%= data[0].author %> 著<br />
+										出版社:<%= data[0].publisher %> 出版</p>
+                                        <p align="left" class="text2" >鋪陳各個角色自我成長歷程。<br /> 〈恆遠之晝篇〉是「特傳」系列中的全新篇章， 更多的角色接力出場，期待值破錶的劇情陸續展開... </p>
+									</li>
+									<!-- ▲▲商品1到此為止▲▲ -->
+								</ul>
+								
+							</li>
+							<!-- ▲▲分類4到此為止▲▲ -->
+							<!-- ▼▼分類5從此開始▼▼ -->
+							
+								<h1  align="left">top8</h1>
+								<ul>
+									<!-- ▼▼商品1從此開始▼▼ -->
+									<li class="clearfix">
+                                         <p class="imageView"><a data-fancybox="gallery" href="images/pic8.jpg">
+										<img src="images/pic8.jpg" width="180" height="180" alt="馬鈴薯 照片" /></a></p>
+										<h3><%= data[0].bookName %>擇食聖經：天下無不死之藥，只有養生之道。</h3>
+										<p class="price"></p>
+										 <p align="left" class="text1" align="left">作者:<%= data[0].author %> 著<br />
+										出版社:<%= data[0].publisher %>  出版</p>
+                                        <p align="left" class="text2" >天王、天后都在做的食療法，你還在等什麼？<br /> 邱錦伶擇食系列最後一次傾囊相授， 獨家收錄「體質自我分析表」等最詳盡的擇食內容...  </p>
+									</li>
+									<!-- ▲▲商品1到此為止▲▲ -->
+								</ul>
+								<p align="left" class="pagetop"><a href="bookrank.html">回到本頁最上方</a></p>
+							</li>
+							<!-- ▲▲分類5到此為止▲▲ -->
+						
+				  </div>
+					
+				</div>
+
+			<!-- Footer -->
+				<div id="footer-wrapper">
+					<div id="footer" class="container">
+						<header>
+							
+						</header>
+						<div class="row">
+							<div class="6u 12u(mobile)">
+								
+							</div>
+							<div class="6u 12u(mobile)">
+							
+							</div>
+						</div>
+					</div>
+					<div id="copyright" class="container">
+						<ul class="links">
+							<li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="left-sidebar.html">HTML5 UP</a></li>
+						</ul>
+					</div>
+				</div>
+
+		</div>
+
+		<!-- Scripts -->
+			<script src="./js/jquery.min.js"></script>
+			<script src="./js/jquery.dropotron.min.js"></script>
+			<script src="./js/skel.min.js"></script>
+			<script src="./js/skel-viewport.min.js"></script>
+			<script src="./js/util.js"></script>
+			<!--[if lte IE 8]><script src="./js/ie/respond.min.js"></script><![endif]-->
+			<script src="./js/rank.js"></script>
+			<script src="./js/js.js"></script>
+			<script src="./js/main.js"></script>
+
+	</body>
+</html>

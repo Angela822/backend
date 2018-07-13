@@ -1,0 +1,276 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>排行榜</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="./js/ie/html5shiv.js"></script><![endif]-->
+        <link rel="stylesheet" href="./css/menu.css" />
+		<link rel="stylesheet" href="./css/pointmain.css" />
+		<!--[if lte IE 8]><link rel="stylesheet" href="./css/ie8.css" /><![endif]-->
+	</head>
+	<body class="left-sidebar">
+		<div id="page-wrapper">
+
+			<!-- Header -->
+				<div id="header-wrapper">
+					<div id="header" class="container">
+<!-- Logo -->
+							<h2 id="logo" class="logo"><a href="index.html">Library</a></h2>
+
+						<!-- Nav -->
+							<nav id="nav">
+								<ul>
+                                	<!--首頁-->
+									<li><a class="icon fa-home" href="/"><span>首頁</span></a></li>
+                                    <!-------------------------------------------------------------------------->
+                                    <!--排行榜-->
+									<li>
+										<a href="#" class="icon fa-bar-chart-o"><span>書本編輯</span></a>
+										<ul>
+											<li><a href="/bookAddForm">新增書本</a></li>
+											<li><a href="/pointrank">書本查詢</a></li>
+										</ul>
+									</li>
+                                   	<!-------------------------------------------------------------------------->
+                                   	<!--討論區-->
+									<li><a class="icon fa-cog" href="/discuss"><span>討論區</span></a></li>
+                                    <!--網站規則-->
+									<li><a class="icon fa-retweet" href="/rules"><span>網站規則</span></a></li>
+								</ul>
+							</nav>
+					</div>
+				</div>
+
+			<!-- Main -->
+				<div id="main-wrapper">
+					<div id="main" class="container">
+                     
+						<div class="row">
+
+							<!-- Sidebar -->
+								<div id="sidebar" class="4u 12u(mobile)">
+
+									<!-- Excerpts -->
+										<section>
+											<ul class="divided">
+												<li>
+													<!-- Search -->
+													<article class="box excerpt">
+														<section id="search" class="alt">
+                                                             <form method="post" action="#">
+                                                                <input type="text" name="query" id="query" placeholder="Search" />
+       														</form>
+                                                         </section>
+													</article>
+												</li>
+
+													<!-- Excerpt -->
+														<article class="box excerpt">
+                                                            <nav id="menu">
+                                                                <header class="major">
+                                                                    <h2>分類 Category</h2>
+                                                                </header>
+                                                            <ul>
+                                                               <li>
+                                                                    <span class="opener"><a href="#cat_01">2017</a></span>
+                                                                    <ul>
+                                                                        <li><a href="#">1</a></li>
+                                                                        <li><a href="#">2</a></li>
+                                                                        <li><a href="#">3</a></li>
+                                                                        <li><a href="#">4</a></li>
+                                                                    </ul>
+                                                                </li>
+                                                                <li>
+                                                                    <span class="opener"><a href="#cat_01">2016</a></span>
+                                                                    <ul>
+                                                                        <li><a href="#">1</a></li>
+                                                                        <li><a href="#">2</a></li>
+                                                                        <li><a href="#">3</a></li>
+                                                                        <li><a href="#">4</a></li>
+                                                                    </ul>
+                                                                </li>
+                                                            </ul>
+                                                            </nav>
+                                                        </article>
+	
+
+												</li>
+											
+											</ul>
+										</section>
+
+
+								</div>
+
+							<!-- Content -->
+						<div id="content" class="8u 12u(mobile) important(mobile)">
+                       
+                       <div id="products_contents">
+							<div align="left">
+					          <ul>
+					            <!-- ▼▼分類1從此開始▼▼ -->
+					            <li id="cat_01"> </li>
+			              </ul>
+					     
+                       </div>
+				        <ul>
+                           <p align="left" class="text0" >本月愛閱點排行</h3>
+                            <% for(var i=0; i<data.length; i++) {%>
+                              <div class="point">
+								   
+                                    <h1  align="left">NO.<%= data[i].serNo %></h1>
+                                   <p align="left" class="photo">
+                                      
+                                    <img class="logo" src="images/cara-delevigne-759.jpg" alt="黃椒 照片" width="100" height="100" align="absmiddle" /></p>   
+					                  <p align="left" class="text1" align="left">愛閱帝王</h3>
+  				                      <p align="left" class="text"><%= data[i].nickName %></p>
+                                      <p align="left" class="price"> 愛閱點:<%= data[i].point %></a></p>
+									  
+                                      <img class="logo2" src="images/monarch.png" width="10" height="10" />
+									    
+                               </div>
+				                 
+
+                               <div class="point1">
+                                    <h1 align="left">No.2</h1>
+                                    <p align="left" class="photo">
+                                    <img class="logo"src="images/images.png" width="100" height="100" alt="白菜 照片"align="absmiddle"/></p>
+                                    <p align="left" class="text2" align="left">愛閱公爵</h3>
+                                    <p align="left" class="text"><%= data[i].nickName %></p>
+                                    <p align="left" class="price">愛閱點:<%= data[i].point %></p>
+                                    <img class="logo2" src="images/duke.png" width="10" height="10" />
+			                       
+				              </div>
+                              <% } %>     
+					            
+                            <!--  <div class="point">
+
+					              <h1 align="left">No.3</h1>
+					              <p align="left" class="photo"><img class="logo" src="images/4a9d3359ea36b.jpg" width="100" height="100" alt="小蕃茄 照片"align="absmiddle" /></p>
+                                  <p align="left" class="text3" align="left">愛閱貴族</h3>
+                                  <p align="left" class="text"><%= data[1].nickName %></p>
+                                  <p align="left" class="price">愛閱點:<%= data[1].point %></p>
+                                  <img class="logo2" src="images/lord.png" width="10" height="10" />
+                               </div>
+					             
+				           
+			               
+				      
+                        
+					         
+					            <ul>
+                                
+					              <div class="point1">
+                                     <h1 align="left">No.4</h1>
+					                 <p align="left" class="photo"><img class="logo" src="images/b-L74-134.jpg" width="100" height="100" alt="小蕃茄 照片"align="absmiddle" /></p>
+                                     <p align="left" class="text4" align="left">愛閱騎士</h3>
+					                 <p align="left" class="text"><%= data[1].nickName %></p>
+					                 <p align="left" class="price">愛閱點:<%= data[1].point %></p>
+					              </div>
+					             
+					            <div class="point">
+                                    <h1 align="left">No.5</h1>
+					                <p align="left" class="photo"><img class="logo" src="images/20140829b.jpg" width="100" height="100" alt="綠蕃茄 照片" /></p>
+					                <p align="left" class="text4" align="left">愛閱騎士</h3>
+					                <p align="left" class="text"><%= data[1].nickName %> </p>
+					                <p align="left" class="price">愛閱點:<%= data[1].point %></p>
+					                </div>
+					                
+					             
+      </ul>
+    
+			                
+				           
+                                
+					            
+					              
+                                  <ul>
+                                 
+                                <div class="point1">
+                                    <h1 align="left">No.6</h1>
+					                <p align="left" class="photo"><img class="logo" src="images/d1110915.jpg" width="100" height="100" alt="款冬 照片" /></p>
+					               <p align="left" class="text4" align="left">愛閱騎士</h3>
+					                <p align="left" class="text"><%= data[1].nickName %> </p>
+					                <p align="left" class="price">愛閱點:<%= data[1].point %></p>
+					                </div>
+					              
+				                </ul>
+					            
+			               
+				            
+				           
+					           
+					         
+					            <ul>
+                                <div class="point">
+                                <h1 align="left">No.7</h1>
+					              
+					                <p align="left" class="photo"><img class="logo" src="images/CRSUOtGVEAA_UtN.jpg" width="100" height="100" alt="茄子 照片" /></p>
+					               <p align="left" class="text4" align="left">愛閱騎士</h3>
+					                <p align="left" class="text"><%= data[1].nickName %> </p>
+					                <p align="left" class="price">愛閱點:<%= data[1].point %></p>
+					                </div>
+					              
+				                </ul>
+					           
+			              
+				            
+				           
+					           
+					           
+					            <ul>
+                                <div class="point1">
+                                 <h1 align="left">No.8</h1>
+					              
+					                <p align="left" class="photo"><img class="logo" src="images/maxresdefault.jpg" width="100" height="100" alt="馬鈴薯 照片" /></p>
+					               <p align="left" class="text4" align="left">愛閱騎士</h3>
+					                <p align="left" class="text"><%= data[1].nickName %> </p>
+					                <p align="left" class="price">愛閱點:<%= data[1].point %></p>
+					                </div>
+					              
+				                </ul>
+								 
+					            <p align="left" class="pagetop"><a href="pointrank.html">回到本頁最上方</a></p>
+			               
+				          
+						
+				   </div>
+					
+				</div>-->
+
+			<!-- Footer -->
+				<div id="footer-wrapper">
+					<div id="footer" class="container">
+						<header>
+							
+						</header>
+						<div class="row">
+							<div class="6u 12u(mobile)">
+								
+							</div>
+							<div class="6u 12u(mobile)">
+							
+							</div>
+						</div>
+					</div>
+					<div id="copyright" class="container">
+						<ul class="links">
+							<li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="left-sidebar.html">HTML5 UP</a></li>
+						</ul>
+					</div>
+				</div>
+
+		</div>
+
+		<!-- Scripts -->
+			<script src="./js/jquery.min.js"></script>
+			<script src="./js/jquery.dropotron.min.js"></script>
+			<script src="./js/skel.min.js"></script>
+			<script src="./js/skel-viewport.min.js"></script>
+			<script src="./js/util.js"></script>
+			<!--[if lte IE 8]><script src="./js/ie/respond.min.js"></script><![endif]-->
+			<script src="./js/rank.js"></script>
+
+	</body>
+</html>
