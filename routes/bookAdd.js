@@ -9,7 +9,7 @@ var pool = require('./lib/db.js');
 
 
 /* GET home page. */
-router.post('/', function(req, res) {
+router.get('/', function(req, res) {
     //取得使用者傳來的參數
     var bookNo=req.param("bookNo");
     var bookName=req.param("bookName");
@@ -40,7 +40,8 @@ router.post('/', function(req, res) {
 	
     pool.query('INSERT INTO book SET ?', newData, function(err, rows, fields) {
         if (err){
-            res.render('bookAddFail', {});     //新增失敗
+            res.render('bookAddFail', {});  
+            console.log();   //新增失敗
         }else{
             res.render('bookAddSuccess', {});  //新增成功
         }
