@@ -36,6 +36,14 @@ router.get('/', function(req, res, next) {
                 res.render('mangerListByPage', {data:results, pageNo:pageNo, totalLine:totalLine, totalPage:totalPage, startPage:startPage, linePerPage:linePerPage, navSegments:navSegments});
             }
         }); 
+        
+    }); 
+
+    pool.query('select count(*) as cnt from manger where mangerId like ?', [mangerId], function(err, results) {
+        if (err)throw err;
+
+        var totalLine=results[0].cnt;
+        var totalPage=1;
 
         pool.query('select * from manger where mangerId like ?',[mangerId], function(err, results) {
             if (err) {
@@ -48,7 +56,8 @@ router.get('/', function(req, res, next) {
                 var recordNo=(pageNo-1)*linePerPage+1;
                 res.render('mangerListByPage', {data:results, pageNo:pageNo, totalLine:totalLine, totalPage:totalPage, startPage:startPage, linePerPage:linePerPage, navSegments:navSegments});
             }
-        });
+        }); 
+        
     }); 
 });
 
