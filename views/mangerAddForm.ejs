@@ -14,7 +14,7 @@
 		<link rel="stylesheet" href="css/login.css" />
 		<link rel="stylesheet" href="css/menu.css" />
 		<link rel="stylesheet" href="css/discussMain.css" />
-		<link rel="stylesheet" href="css/bookListByPage.css" />
+		<link rel="stylesheet" href="css/bookAddForm.css" />
 		
 		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie8.css" /><![endif]-->
 
@@ -42,7 +42,7 @@
 										<a href="#" class="icon fa-bar-chart-o"><span>書本編輯</span></a>
 										<ul>
 											<li><a href="/bookAddForm">新增書本</a></li>
-											<li><a href="/">書本查詢</a></li>
+											<li><a href="/bookListByPage">書本查詢</a></li>
 										</ul>
 									</li>
 									   <!-------------------------------------------------------------------------->
@@ -50,6 +50,7 @@
 									<li><a class="icon fa-retweet" href="/rules"><span>網站規則</span></a></li>
 									<!--管理員帳號管理---->
 									<li><a class="icon fa-retweet" href="/mangerAddForm"><span>帳號管理</span></a></li>
+                                   	
 								</ul>
 
 								<!--login button-->
@@ -72,118 +73,36 @@
 									<div id="products_contents">
 										<div>
 											<h2>
-												<strong>查詢書本</strong>
+												<strong>新增管理員帳號</strong>
 											</h2>											
 										</div>
 										
-									        <!------------------------------>
-											<!-- 頁碼開始                 -->
-											<!------------------------------>       
-											<div class="row">
-												<div class="col-md-12-1">
-													<ul class="pagination">
-														<li>
-															<a>第<%=pageNo%>頁</a>
-														</li>                   
+										<div class="col-md-12">
+											<!-- ........................................... -->
+											<!-- 表單開始(以post傳送資料, 並指定enctype)     -->
+											<!-- ........................................... -->                
+											<form role="form" method="post" enctype="multipart/form-data" action="/mangerAdd">	
+							
+												<div class="form-group">                     
+													<label>管理員編號(*)</label>
+													<input type="text" class="form-control" placeholder="Ex.M001" id="mangerId"  name="mangerId"/>
+												</div>      
 
-														<% if(startPage>1){ %>
-															<li>
-																<a href="/bookListByPage?pageNo=<%=(startPage-1)%>">上一區段...</a>
-															</li>
-														<% } %> 
+												<div class="form-group">                     
+													<label>管理員姓名(*)</label>
+													<input type="text" class="form-control" placeholder="Ex.王小明" id="mangerName"  name="mangerName"/>
+												</div> 
 
-														<% for(var i=startPage; i<startPage+linePerPage; i++) {%>
-															<% if(i<=totalPage){ %>
-																<li>
-																	<a href="/bookListByPage?pageNo=<%=i%>"><%=i%></a>
-																</li>
-															<% } %> 
-														<% } %>
-
-														<% if(startPage+linePerPage<totalPage){ %>
-															<li>
-																<a href="/bookListByPage?pageNo=<%=(startPage+linePerPage)%>">...下一區段</a>
-															</li>
-														<% } %>                         
-													</ul>
-													
-													<!-------------------------->
-													<!----- 查詢            ---->
-													<!-------------------------->
-													<form class="navbar-form nav navbar-right" role="search" method="get" action="/bookListSearchByName">
-														<div class="form-group">
-															<input type="text" class="form-control" placeholder="書本名稱 / 部份名稱" id="bookName" name="bookName"/>
-														</div> 
-														<button type="submit" class="btn btn-default">
-															查詢
-														</button>
-													</form>
-												</div>  
-											</div>  
-											<!------------------------------>
-											<!-- 頁碼結束                 -->
-											<!------------------------------>
-
-
-
-											<!------------------------------>
-											<!-- 內文開始                 -->
-											<!------------------------------>                 
-											<div class="row">
-												<div class="col-md-12">
-													<table class="table table-bordered productTable">
-														<thead>
-															<tr>
-																<th>
-																	書號
-																</th>
-																<th>
-																	書本名稱
-																</th>
-																<th>
-																	作者
-																</th>
-																<th>
-																	出版日期
-																</th>
-																<th>
-																	種類
-																</th>                        
-															</tr>
-														</thead>
-														<tbody>
-															<!------------------------------>
-															<!-- 顯示資料內容開始         -->
-															<!------------------------------>                       
-															<% for(var i=0; i<data.length; i++) {%>
-																<tr>
-																	<td>
-																		<a href="/bookOneItem?bookNo=<%= data[i].bookNo %>"><%= data[i].bookNo %></a>
-																	</td>
-																	<td>
-																		<a href="/bookOneItem?bookNo=<%= data[i].bookNo %>"><%= data[i].bookName %></a>
-																	</td>
-																	<td>
-																		<%= data[i].author %></a>
-																	</td>
-																	<td>
-																		<%= myDateFormat(data[i].date) %>
-																	</td>
-																	<td>
-																		<%= data[i].type %></a>
-																	</td>                        
-																</tr> 
-															<% } %> 
-															<!------------------------------>
-															<!-- 顯示資料內容結束         -->
-															<!------------------------------>                       
-														</tbody>
-													</table>
-												</div>
-											</div>
-											<!------------------------------>
-											<!-- 內文結束                 -->
-											<!------------------------------>         
+												<div class="form-group">                     
+													<label>密碼</label>
+													<input type="password" class="form-control" id="password"  name="password"/>
+												</div> 
+												
+												<button type="submit" class="btn btn-default">
+													新增
+												</button>
+											</form>                
+										</div>
 									</div>
 								        
 						</div>

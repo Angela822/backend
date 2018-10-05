@@ -26,6 +26,7 @@ var ruleModifyForm = require('./routes/ruleModifyForm');
 var ruleModify = require('./routes/ruleModify');
 var ruleAddForm = require('./routes/ruleAddForm');
 var ruleAdd = require('./routes/ruleAdd');
+
 var bookAddForm = require('./routes/bookAddForm');
 var bookAdd = require('./routes/bookAdd');
 var bookListByPage = require('./routes/bookListByPage');
@@ -34,6 +35,9 @@ var bookOneItem = require('./routes/bookOneItem');
 var bookUpdateForm = require('./routes/bookUpdateForm');
 var bookUpdate = require('./routes/bookUpdate');
 var bookDelete = require('./routes/bookDelete');
+
+var mangerAddForm = require('./routes/mangerAddForm');
+var mangerAdd = require('./routes/mangerAdd');
 //-------------------------------------------------------
 
 
@@ -69,6 +73,7 @@ app.use('/ruleModifyForm', ruleModifyForm);
 app.use('/ruleModify', ruleModify);
 app.use('/ruleAddForm', ruleAddForm);
 app.use('/ruleAdd', ruleAdd);
+
 app.use('/bookAddForm', bookAddForm);
 app.use('/bookAdd', bookAdd);
 app.use('/bookListByPage', bookListByPage);
@@ -77,6 +82,9 @@ app.use('/bookOneItem', bookOneItem);
 app.use('/bookUpdateForm', bookUpdateForm);
 app.use('/bookUpdate', bookUpdate);
 app.use('/bookDelete', bookDelete);
+
+app.use('/mangerAddForm', mangerAddForm);
+app.use('/mangerAdd', mangerAdd);
 //-------------------------------------------------------
 
 
