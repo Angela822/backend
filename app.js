@@ -38,6 +38,8 @@ var bookDelete = require('./routes/bookDelete');
 
 var mangerAddForm = require('./routes/mangerAddForm');
 var mangerAdd = require('./routes/mangerAdd');
+var mangerListByPage = require('./routes/mangerListByPage');
+var mangerListSearchByName = require('./routes/mangerListSearchByName');
 //-------------------------------------------------------
 
 
@@ -85,6 +87,8 @@ app.use('/bookDelete', bookDelete);
 
 app.use('/mangerAddForm', mangerAddForm);
 app.use('/mangerAdd', mangerAdd);
+app.use('/mangerListByPage', mangerListByPage);
+app.use('/mangerListSearchByName', mangerListSearchByName);
 //-------------------------------------------------------
 
 
