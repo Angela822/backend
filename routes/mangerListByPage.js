@@ -65,7 +65,7 @@ router.get('/', function(req, res, next) {
                 res.render('dataNotFound', {});
             }else{
                 var recordNo=(pageNo-1)*linePerPage+1;
-                res.render('bookListByPage', {data:results, pageNo:pageNo, totalLine:totalLine, totalPage:totalPage, startPage:startPage, linePerPage:linePerPage, navSegments:navSegments});
+                res.render('mangerListByPage', {data:results, pageNo:pageNo, totalLine:totalLine, totalPage:totalPage, startPage:startPage, linePerPage:linePerPage, navSegments:navSegments});
             }
         }); 
     }); 
