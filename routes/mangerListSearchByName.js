@@ -16,15 +16,20 @@ router.get('/', function(req, res, next) {
     var mangerId=req.param('mangerId');
     var mangerName=req.param('mangerName');
 	mangerName = "%" + mangerName + "%";
-    var pageNo=1
+    var pageNo=1;
 
-    pool.query('select count(*) as cnt from manger where mangerName like ?', [mangerName], function(err, results) {
+    var data={
+        mangerId:mangerId,
+        mangerName:mangerName
+    }
+
+    pool.query('select count(*) as cnt from manger SET ?', data, function(err, results) {
         if (err)throw err;
 
         var totalLine=results[0].cnt;
         var totalPage=1;
 
-        pool.query('select * from manger where mangerName like ?',[mangerName], function(err, results) {
+        pool.query('select * from manger SET ?',data, function(err, results) {
             if (err) {
                 res.render('dataNotFound', {});
             }
@@ -39,26 +44,6 @@ router.get('/', function(req, res, next) {
         
     }); 
 
-    pool.query('select count(*) as cnt from manger where mangerId like ?', [mangerId], function(err, results) {
-        if (err)throw err;
-
-        var totalLine=results[0].cnt;
-        var totalPage=1;
-
-        pool.query('select * from manger where mangerId like ?',[mangerId], function(err, results) {
-            if (err) {
-                res.render('dataNotFound', {});
-            }
-
-            if(results.length==0){
-                res.render('dataNotFound', {});
-            }else{
-                var recordNo=(pageNo-1)*linePerPage+1;
-                res.render('mangerListByPage', {data:results, pageNo:pageNo, totalLine:totalLine, totalPage:totalPage, startPage:startPage, linePerPage:linePerPage, navSegments:navSegments});
-            }
-        }); 
-        
-    }); 
 });
 
 module.exports = router;
