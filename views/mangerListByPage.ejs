@@ -94,21 +94,21 @@
 
 														<% if(startPage>1){ %>
 															<li>
-																<a href="/bookListByPage?pageNo=<%=(startPage-1)%>">上一區段...</a>
+																<a href="/mangerListByPage?pageNo=<%=(startPage-1)%>">上一區段...</a>
 															</li>
 														<% } %> 
 
 														<% for(var i=startPage; i<startPage+linePerPage; i++) {%>
 															<% if(i<=totalPage){ %>
 																<li>
-																	<a href="/bookListByPage?pageNo=<%=i%>"><%=i%></a>
+																	<a href="/mangerListByPage?pageNo=<%=i%>"><%=i%></a>
 																</li>
 															<% } %> 
 														<% } %>
 
 														<% if(startPage+linePerPage<totalPage){ %>
 															<li>
-																<a href="/bookListByPage?pageNo=<%=(startPage+linePerPage)%>">...下一區段</a>
+																<a href="/mangerListByPage?pageNo=<%=(startPage+linePerPage)%>">...下一區段</a>
 															</li>
 														<% } %>                         
 													</ul>
@@ -155,14 +155,11 @@
 															<% for(var i=0; i<data.length; i++) {%>
 																<tr>
 																	<td>
-																		<%= data[i].author %></a>
+																		<%= data[i].mangerId %></a>
 																	</td>
 																	<td>
-																		<%= myDateFormat(data[i].date) %>
-																	</td>
-																	<td>
-																		<%= data[i].type %></a>
-																	</td>                        
+																		<%= data[i].mangerName %></a>
+																	</td>                 
 																</tr> 
 															<% } %> 
 															<!------------------------------>

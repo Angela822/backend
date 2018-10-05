@@ -13,17 +13,17 @@ var navSegments=10;
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-    var bookName=req.param('bookName');
-	bookName = "%" + bookName + "%";
+    var mangerName=req.param('mangerName');
+	mangerName = "%" + mangerName + "%";
     var pageNo=1
 
-    pool.query('select count(*) as cnt from book where bookName like ?', [bookName], function(err, results) {
+    pool.query('select count(*) as cnt from manger where mangerName like ?', [mangerName], function(err, results) {
         if (err)throw err;
 
         var totalLine=results[0].cnt;
         var totalPage=1;
 
-        pool.query('select * from book where bookName like ?',[bookName], function(err, results) {
+        pool.query('select * from manger where mangerName like ?',[mangerName], function(err, results) {
             if (err) {
                 res.render('dataNotFound', {});
             }
@@ -32,7 +32,7 @@ router.get('/', function(req, res, next) {
                 res.render('dataNotFound', {});
             }else{
                 var recordNo=(pageNo-1)*linePerPage+1;
-                res.render('bookListByPage', {data:results, pageNo:pageNo, totalLine:totalLine, totalPage:totalPage, startPage:startPage, linePerPage:linePerPage, navSegments:navSegments});
+                res.render('mangerListByPage', {data:results, pageNo:pageNo, totalLine:totalLine, totalPage:totalPage, startPage:startPage, linePerPage:linePerPage, navSegments:navSegments});
             }
         }); 
     }); 
