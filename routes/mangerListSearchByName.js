@@ -13,6 +13,7 @@ var navSegments=10;
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
+    var mangerId=req.param('mangerId');
     var mangerName=req.param('mangerName');
 	mangerName = "%" + mangerName + "%";
     var pageNo=1
@@ -35,6 +36,19 @@ router.get('/', function(req, res, next) {
                 res.render('mangerListByPage', {data:results, pageNo:pageNo, totalLine:totalLine, totalPage:totalPage, startPage:startPage, linePerPage:linePerPage, navSegments:navSegments});
             }
         }); 
+
+        pool.query('select * from manger where mangerId like ?',[mangerId], function(err, results) {
+            if (err) {
+                res.render('dataNotFound', {});
+            }
+
+            if(results.length==0){
+                res.render('dataNotFound', {});
+            }else{
+                var recordNo=(pageNo-1)*linePerPage+1;
+                res.render('mangerListByPage', {data:results, pageNo:pageNo, totalLine:totalLine, totalPage:totalPage, startPage:startPage, linePerPage:linePerPage, navSegments:navSegments});
+            }
+        });
     }); 
 });
 
