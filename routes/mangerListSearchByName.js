@@ -15,21 +15,17 @@ var navSegments=10;
 router.get('/', function(req, res, next) {
     var mangerId=req.param('mangerId');
     var mangerName=req.param('mangerName');
-	mangerName = "%" + mangerName + "%";
+    mangerName = "%" + mangerName + "%";
+    mangerId = "%" + mangerName + "%";
     var pageNo=1;
 
-    var data={
-        mangerId:mangerId,
-        mangerName:mangerName
-    }
-
-    pool.query('select count(*) as cnt from manger SET ?', data, function(err, results) {
+    pool.query('select count(*) as cnt from manger where mangerName like ? || mangerId like ? ', [mangerName,mangerId], function(err, results) {
         if (err)throw err;
 
         var totalLine=results[0].cnt;
         var totalPage=1;
 
-        pool.query('select * from manger SET ?',data, function(err, results) {
+        pool.query('select * from manger where mangerName like ? || mangerId like ?',[mangerName,mangerId], function(err, results) {
             if (err) {
                 res.render('dataNotFound', {});
             }
