@@ -14,7 +14,7 @@ router.post('/', function(req, res) {
     var mangerId=req.param("mangerId");
     var mangerName=req.param("mangerName");
     	
-    pool.query('UPDATE book SET mangerName=? where mangerId=?', [mangerName,mangerId], function(err, rows, fields) {
+    pool.query('UPDATE manger SET mangerName=? where mangerId=?', [mangerName,mangerId], function(err, rows, fields) {
         if (err){
             res.render('mangerUpdateFail', {});     //新增失敗
         }else{
