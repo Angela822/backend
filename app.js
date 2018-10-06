@@ -42,6 +42,7 @@ var mangerListByPage = require('./routes/mangerListByPage');
 var mangerListSearchByName = require('./routes/mangerListSearchByName');
 var mangerUpdateForm = require('./routes/mangerUpdateForm');
 var mangerUpdate = require('./routes/mangerUpdate');
+var mangerDelete = require('./routes/mangerDelete');
 //-------------------------------------------------------
 
 
@@ -93,6 +94,7 @@ app.use('/mangerListByPage', mangerListByPage);
 app.use('/mangerListSearchByName', mangerListSearchByName);
 app.use('/mangerUpdateForm', mangerUpdateForm);
 app.use('/mangerUpdate', mangerUpdate);
+app.use('/mangerDelete', mangerDelete);
 //-------------------------------------------------------
 
 

@@ -172,9 +172,12 @@
 																		</button>
 																	</td>     
 																	<td>
-																		<button type="submit"  onclick="location.href='/mangerUpdateForm?mangerId=<%= data[i].mangerId %>'" class="btn btn-default">
-																			刪除
-																		</button>
+																		<div class="row buttonRow">
+																			<form  onsubmit="return confirm('是否確定刪除?');" role="form" action="/mangerDelete">
+																				<input type="hidden" name="mangerId" value="<%=data[i].mangerId%>"/>
+																				<button type="submit" class="btn btn-default">刪除</button>
+																			</form>
+																		</div> 
 																	</td>         
 																</tr> 
 															<% } %> 
