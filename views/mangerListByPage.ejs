@@ -159,7 +159,12 @@
 																	</td>
 																	<td>
 																		<%= data[i].mangerName %></a>
-																	</td>                 
+																	</td>  
+																	<td>
+																		<button type="submit"  onclick="location.href='/mangerUpdateForm?bookNo=<%= data[0].mangerId %>'" class="btn btn-default">
+																			修改
+																		</button>
+																	</td>              
 																</tr> 
 															<% } %> 
 															<!------------------------------>
