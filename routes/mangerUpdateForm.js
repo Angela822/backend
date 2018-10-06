@@ -18,7 +18,8 @@ router.get('/', function(req, res, next) {
 	//------------------------
 	// 取得使用者輸入的參數
 	//------------------------
-	var mangerId=req.query.mangerId;
+    //var mangerId=req.query.mangerId;
+    var mangerId=req.param("mangerId");
 	
 	
 	//------------------------

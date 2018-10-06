@@ -85,22 +85,24 @@
 										<div class="col-md-12">
 											<!-- ........................................... -->
 											<!-- 表單開始(以post傳送資料, 並指定enctype)     -->
-											<!-- ........................................... -->                
+											<!-- ........................................... -->         
+											      
 											<form onsubmit="return confirm('是否確定更改?');" role="form" method="post" action="/mangerUpdate">		
-							
-												<div class="form-group">                    
-													<label><strong>管理員帳號 :</strong></label>
-													<input type="text" class="form-control" name="mangerId" value="<%= data[0].mangerId %>"/>
-												</div>      
+												<% for(var i=0; i<data.length; i++) {%> 
+													<div class="form-group">                    
+														<label><strong>管理員帳號 :</strong></label>
+														<input type="text" class="form-control" name="mangerId" value="<%= data[i].mangerId %>"/>
+													</div>      
 
-												<div class="form-group">                     
-													<label><strong>管理員姓名 :</strong></label>
-													<input type="text" class="form-control" name="mangerName" value="<%= data[0].mangerName %>"/>
-												</div> 
-												
-												<button type="submit" class="btn btn-default">
-													更改
-												</button>
+													<div class="form-group">                     
+														<label><strong>管理員姓名 :</strong></label>
+														<input type="text" class="form-control" name="mangerName" value="<%= data[i].mangerName %>"/>
+													</div> 
+													
+													<button type="submit" class="btn btn-default">
+														更改
+													</button>
+												<% } %>
 											</form>                
 										</div>
 									</div>
