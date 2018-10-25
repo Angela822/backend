@@ -11,10 +11,10 @@ var pool = require('./lib/db.js');
 /* GET home page. */
 router.get('/', function(req, res, next) {
     //取得使用者傳來的參數
-    var serkNo=req.param("serNo");
+    var bookNo=req.param("bookNo");
 	
 	//刪除資料庫內容
-    pool.query('DELETE FROM book where serNo=?', [serNo], function(err, result) {
+    pool.query('DELETE FROM book where bookNo=?', [bookNo], function(err, result) {
         if (err){
             res.render('bookDeleteFail', {});     //刪除失敗
         }else{

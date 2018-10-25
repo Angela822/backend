@@ -3,23 +3,16 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var bodyParser = require('body-parser');
 
-var indexRouter = require('./routes/index');
+var indexRouter = require('./routes/mangerIndex');
 var usersRouter = require('./routes/users');
-//-------------------------------------------------------
-// 增加以下的require
-//-------------------------------------------------------
-var moment = require('moment');
-var bookrank = require('./routes/bookrank');
-var pointrank = require('./routes/pointrank');
-var discuss = require('./routes/discuss');
-var discuss2 = require('./routes/discuss2');
-var discuss3 = require('./routes/discuss3');
-var rules = require('./routes/rules');
+
 //-------------------------------------------------------
 // 增加以下的require(後端)
 //-------------------------------------------------------
 var moment = require('moment');
+var mangerRules = require('./routes/mangerRules');
 var OneRule = require('./routes/OneRule');
 var ruleDelete = require('./routes/ruleDelete');
 var ruleModifyForm = require('./routes/ruleModifyForm');
@@ -43,10 +36,31 @@ var mangerListSearchByName = require('./routes/mangerListSearchByName');
 var mangerUpdateForm = require('./routes/mangerUpdateForm');
 var mangerUpdate = require('./routes/mangerUpdate');
 var mangerDelete = require('./routes/mangerDelete');
+
+var login = require('./routes/login');
+var loginSuccess = require('./routes/loginSuccess');
+var loginFail = require('./routes/loginFail');
+var logout = require('./routes/logout');
 //-------------------------------------------------------
 
 
 var app = express();
+
+//-----------------------------------------
+// 增加使用session及uuid
+//-----------------------------------------
+var session=require('express-session');
+var uuid=require('uuid');
+
+app.use(session({
+    genid:function(req){
+        return uuid.v1();
+    },
+    secret: 'secretcode',
+    resave: true,
+    saveUninitialized: true
+}));
+//-----------------------------------------
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -60,18 +74,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-//-------------------------------------------------------
-// 增加以下的app.use()
-//-------------------------------------------------------
-app.use('/bookrank',bookrank);
-app.use('/pointrank',pointrank);
-app.use('/discuss', discuss);
-app.use('/discuss2', discuss2);
-app.use('/discuss3', discuss3);
-app.use('/rules', rules);
+
 //-------------------------------------------------------
 // 增加以下的app.use() 後端
 //-------------------------------------------------------
+app.use('/mangerRules', mangerRules);
 app.use('/OneRule', OneRule);
 app.use('/ruleDelete', ruleDelete);
 app.use('/ruleModifyForm', ruleModifyForm);
@@ -95,6 +102,12 @@ app.use('/mangerListSearchByName', mangerListSearchByName);
 app.use('/mangerUpdateForm', mangerUpdateForm);
 app.use('/mangerUpdate', mangerUpdate);
 app.use('/mangerDelete', mangerDelete);
+
+app.use('/login', login);
+app.use('/loginSuccess', loginSuccess);
+app.use('/loginFail', loginFail);
+app.use('/logout', logout);
+
 //-------------------------------------------------------
 
 
