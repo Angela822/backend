@@ -31,7 +31,6 @@ router.get('/', function(req, res) {
         authorIntro:authorIntro,
         content:content,
         publisher:publisher,
-        date:date,
         language:language,
 		type:type,
 		picture:picture,
